@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [ -z "$PYFILE" ]; then
+    echo "Error: Environment variable PYFILE not set."
+    exit 1
+fi
+
+if [[ ! "$PYFILE" =~ \.py$ ]]; then
+    echo "Error: PYFILE must be a .py file."
+    exit 1
+fi
+
+python -m py_compile "$PYFILE"
+
+if [ $? -eq 0 ]; then
+    echo "Compilation successful."
+    compiled_file="${PYFILE}c"
+    echo "Output file: $compiled_file"
+else
+    echo "Compilation failed."
+fi
+
