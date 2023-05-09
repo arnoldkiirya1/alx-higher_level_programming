@@ -1,5 +1,5 @@
 #!/usr/bin/python3
 str = "Python is an interpreted, interactive, object-oriented programming\
         language that combines remarkable power with very clear syntax"
-str = str[39:67] + str[107:112] + " with " + str[:6]
+str = str[39:67] + str[106:112] # removed the space at index 67
 print(str)
