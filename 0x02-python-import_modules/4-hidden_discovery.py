@@ -8,4 +8,3 @@ if __name__ == "__main__":
     for name in names:
         if not name.startswith("__"):
             print(name)
-
