@@ -1,10 +1,12 @@
-# import add function from add_0.py
+#!/usr/bin/python3
+
 from add_0 import add
 
-# assign values to a and b
-a = 1
-b = 2
+def main():
+    a = 1
+    b = 2
+    result = add(a, b)
+    print(f"{a} + {b} = {result}")
 
-# call add function with a and b as arguments and print the result
-print('{} + {} = {}'.format(a, b, add(a, b)))
-
+if __name__ == "__main__":
+    main()
