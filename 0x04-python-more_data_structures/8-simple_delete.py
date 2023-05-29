@@ -1,16 +1,6 @@
 #!/usr/bin/python3
 
 def simple_delete(a_dictionary, key=""):
-    """
-    Deletes a key in a dictionary.
-
-    Args:
-        a_dictionary (dict): The dictionary to delete the key from.
-        key (str): The key to delete. Defaults to an empty string.
-
-    Returns:
-        None
-    """
-    if key in a_dictionary:
+    if a_dictionary.get(key) is not None:
         del a_dictionary[key]
-
+    return a_dictionary
