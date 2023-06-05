@@ -62,4 +62,3 @@ class Rectangle:
         Computes and returns the perimeter of the rectangle.
         """
         return 2 * (self.__width + self.__height)
-
