@@ -1,19 +1,23 @@
 #!/usr/bin/python3
+'''Module for Student class.'''
+
 
 class Student:
+    '''Class for jsonification.'''
     def __init__(self, first_name, last_name, age):
+        '''Constructor.'''
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
-    
+
     def to_json(self, attrs=None):
-        if attrs is None:
-            attrs = [attr for attr in dir(self) if not attr.startswith('__') and not callable(getattr(self, attr))]
+        '''Retrieves dictionary with filter.'''
+        if type(attrs) is list and all([type(x) == str for x in attrs]):
+            return {k: v for k, v in self.__dict__.items() if k in attrs}
         else:
-            attrs = [attr for attr in attrs if hasattr(self, attr)]
-        
-        return {attr: getattr(self, attr) for attr in attrs}
-    
+            return self.__dict__.copy()
+
     def reload_from_json(self, json):
-        for attr, value in json.items():
-            setattr(self, attr, value)
+        '''Loads attributes from json.'''
+        for key, value in json.items():
+            self.__dict__[key] = value
